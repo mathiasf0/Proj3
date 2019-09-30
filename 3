@@ -1,0 +1,74 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	int a;
+	int b;
+	int c;
+	double x1;
+	double x2;
+	double disc;
+	double real;
+	double imag;
+	cout << scientific;
+	string ProEnd = "Thank you for using the Mathias Francia Quadratic Equation Solver";
+	
+	cout << "Welcome to the Mathias Francia Quadratic Equation Solver\n";
+	cout << "This program will provide you with solutions for an equation of the form: Ax^2 + Bx + C = 0\n";
+	cout << "Where A, B, and C, are integers and A is not equal to zero\n";
+	cout << "Please enter the value of A(int only): \n";
+	cin >> a;
+	if (a == 0.0) {
+		cout << " Be careful! If the leading coefficient is zero then you do not have a quadratic equation!Maybe you have a linear equation.If you would like to solve a linear equation which is BX + C = 0 then please continue\n";
+	}
+	cout << "Please enter the value of B(int only): \n";
+	cin >> b;
+
+
+	if (a == 0.0 && b == 0.0) {
+		cout << "With A and B both being zero, you do not have an algebraic equation. ";
+		cout << "Thank you for using the Mathias Francia Quadratic Equation Solver\n";
+		return 0;
+	}
+
+	cout << "Please enter the value of C(int only): ";
+	cin >> c;
+
+	if (a == 0.0 && b != 0.0) {
+		double lin = double(-c) / b;
+		cout << "Your Solution is X= " << lin << endl;
+        return 0;	    
+	}
+
+	disc = b * b - 4 * a * c;
+
+	if (disc > 0) {
+		std::cout << std::setprecision(4);
+		x1 = (-b + sqrt(disc)) / (2.0 * a);
+		x2 = (-b - sqrt(disc)) / (2.0 * a);
+		cout << "Roots are real and different." << endl;
+		cout << "x1 =" << x1 << endl;
+		cout << "x2 =" << x2 << endl;
+	}
+
+	else if (disc == 0) {
+		std::cout << std::setprecision(4);
+		cout << "Roots are real and same." << endl;
+		x1 = (-b + sqrt(disc)) / (2.0 * a);
+		cout << "The one real solution is X= " << x1 << endl;
+	}
+	else {
+		real =  (-b )/ (2.0 * a);
+		std::cout << std::setprecision(4);
+		imag = sqrt(-disc) / (2.0 * a);
+		cout << "Roots are complex and different." << endl;
+		cout << "x1 = " << real << "+" << imag << "*I" << endl;
+		cout << "x2 = " << real << "-" << imag << "*I" << endl;
+
+		return 0;
+	}
+
+}
